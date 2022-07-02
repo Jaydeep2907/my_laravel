@@ -29,11 +29,11 @@ $(document).ready(function () {
                 maxlength: "Price cannot be more than 5 characters."
             }
         },
-        errorPlacement: function (e, t) {
-            "g-recaptcha-response" == t.attr("id") ? e.insertAfter(t.parent()) : e.insertAfter(t);
-        },
-        submitHandler: function (e) {
-            $(":button").attr("disabled", "disabled"), grecaptcha.execute();
-        },
+//        errorPlacement: function (e, t) {
+//            "g-recaptcha-response" == t.attr("id") ? e.insertAfter(t.parent()) : e.insertAfter(t);
+//        },
+//        submitHandler: function (e) {
+//            $(":button").attr("disabled", "disabled"), grecaptcha.execute();
+//        },
     });
 });

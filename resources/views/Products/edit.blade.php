@@ -12,18 +12,7 @@
     </div>
 </div>
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <strong>Error!</strong>
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li></li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-<form action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('products.update',$product->id) }}" method="POST" id="product_form" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <?php // echo '<pre>';print_r($product->description);exit;?>
@@ -32,18 +21,27 @@
             <div class="form-group">
                 <strong>Name:</strong>
                 <input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="Name">
+                @if($errors->has('name'))
+                <span class="error">{{ $errors->first('name') }}</span>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description</strong>
                 <textarea class="form-control" name="description" placeholder="Description" value="{{ $product->description }}">{{ $product->description }}</textarea>
+                @if($errors->has('description'))
+                <span class="error">{{ $errors->first('description') }}</span>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Price</strong>
                 <input type="number" name="price" class="form-control" placeholder="Price" value="{{ $product->price }}">
+                @if($errors->has('price'))
+                <span class="error">{{ $errors->first('price') }}</span>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

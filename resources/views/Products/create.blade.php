@@ -30,18 +30,27 @@
             <div class="form-group">
                 <strong>Product Name:</strong>
                 <input type="text" name="name" class="form-control" placeholder="Name">
+                @if($errors->has('name'))
+                <span class="error">{{ $errors->first('name') }}</span>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>
                 <textarea class="form-control" style="height:50px" name="description" placeholder="description"></textarea>
+                @if($errors->has('description'))
+                <span class="error">{{ $errors->first('description') }}</span>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Price:</strong>
                 <input type="number" name="price" class="form-control" placeholder="Put the price">
+                @if($errors->has('price'))
+                <span class="error">{{ $errors->first('price') }}</span>
+                @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
